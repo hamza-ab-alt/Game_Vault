@@ -48,3 +48,8 @@ function filterGames() {
     displayGames(filtered);
 }
 
+// --- 3. Event Listeners ---
+
+// Search Input (US2)
+searchInput.addEventListener('input', filterGames);
+
