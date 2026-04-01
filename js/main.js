@@ -103,3 +103,14 @@ function addToCart(gameId) {
     alert(`${gameToAdd.title} ajouté au panier !`);
 }
 
+// 4. Event Listener f l-grid (Event Delegation)
+gamesGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.add-to-cart');
+    if (btn) {
+        const id = parseInt(btn.dataset.id);
+        addToCart(id);
+    }
+});
+
+// N-renderiw l-badge f l-lowwel
+updateCartBadge();
