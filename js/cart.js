@@ -98,3 +98,16 @@ if (cartItemsContainer) {
     });
 }
 
+// 5. Commander (US9)
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+        if (cart.length === 0) return;
+        alert(" Succès ! Votre commande est validée.");
+        cart = [];
+        localStorage.removeItem('gamevault_cart');
+        updateCartUI();
+    });
+}
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', updateCartUI);
