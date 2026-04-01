@@ -25,7 +25,29 @@
         </nav>
     </header>
 
+    <main class="w-full max-w-4xl mx-auto px-4 py-10">
+        <h2 class="text-4xl font-black mb-8">Mon Panier</h2>
 
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div id="cart-items" class="lg:col-span-2 flex flex-col gap-4">
+                </div>
+
+            <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 h-fit">
+                <h3 class="text-xl font-bold mb-4">Résumé de la commande</h3>
+                <div id="order-summary" class="text-sm text-gray-500 mb-4 flex flex-col gap-1">
+                    </div>
+                <hr class="mb-4">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-lg font-bold">Total</span>
+                    <span id="cart-total" class="text-2xl font-black">0.00 €</span>
+                </div>
+                <button id="checkout-btn" class="w-full bg-black text-white py-4 rounded-2xl font-bold hover:bg-gray-800 transition shadow-lg active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cart-check"></i>
+                    Commander
+                </button>
+            </div>
+        </div>
+    </main>
 
     <script type="module" src="./js/cart.js"></script>
 </body>
