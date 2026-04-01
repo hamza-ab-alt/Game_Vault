@@ -61,3 +61,16 @@ function updateCartUI() {
         `;
         cartItemsContainer.innerHTML += itemHTML;
 
+        // Render Summary Details
+        if (orderSummary) {
+            orderSummary.innerHTML += `<div class="flex justify-between text-gray-600">
+                <span>${item.title} x${item.quantity}</span>
+                <span>${(item.price * item.quantity).toFixed(2)}€</span>
+            </div>`;
+        }
+    });
+
+    if (cartTotalElement) cartTotalElement.textContent = `${total.toFixed(2)} €`;
+    if (cartCountBadge) cartCountBadge.textContent = count;
+}
+
