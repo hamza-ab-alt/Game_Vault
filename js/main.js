@@ -95,3 +95,11 @@ function addToCart(gameId) {
         cart.push({ ...gameToAdd, quantity: 1 });
     }
 
+    // Sauvegarder o Update UI
+    localStorage.setItem('gamevault_cart', JSON.stringify(cart));
+    updateCartBadge();
+    
+    // Alert simple (Optional: tqder t-gadha b Toast mn b3d)
+    alert(`${gameToAdd.title} ajouté au panier !`);
+}
+
