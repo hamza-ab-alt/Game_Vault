@@ -9,6 +9,22 @@
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
 
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="w-full px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-gamepad text-2xl"></i>
+                <span class="text-xl font-bold">GameStore</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="index.html" class="font-medium hover:text-gray-600 transition">Accueil</a>
+                <a href="cart.html" class="relative font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Panier <span id="cart-count" class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
 
 
     <script type="module" src="./js/cart.js"></script>
