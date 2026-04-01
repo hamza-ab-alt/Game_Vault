@@ -32,3 +32,32 @@ function updateCartUI() {
         return;
     }
 
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+
+        // Render Card Article
+        const itemHTML = `
+            <div class="bg-white p-5 rounded-[2.5rem] border border-gray-100 flex items-center gap-6 shadow-sm hover:shadow-md transition-all">
+                <img src="${item.image}" alt="${item.title}" class="w-24 h-24 object-cover rounded-[1.5rem]">
+                <div class="flex-grow">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-xl">${item.title}</h4>
+                        <button class="text-gray-300 hover:text-red-500 transition-colors remove-item" data-id="${item.id}">
+                            <i class="fa-solid fa-trash-can text-lg"></i>
+                        </button>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">${item.category}</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-4 bg-gray-100 rounded-2xl px-3 py-1.5 w-fit">
+                            <button class="update-qty hover:scale-110 active:scale-90 transition-transform font-bold px-2" data-id="${item.id}" data-action="minus">-</button>
+                            <span class="font-black text-lg min-w-[20px] text-center">${item.quantity}</span>
+                            <button class="update-qty hover:scale-110 active:scale-90 transition-transform font-bold px-2" data-id="${item.id}" data-action="plus">+</button>
+                        </div>
+                        <span class="font-black text-xl">${(item.price * item.quantity).toFixed(2)} €</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        cartItemsContainer.innerHTML += itemHTML;
+
