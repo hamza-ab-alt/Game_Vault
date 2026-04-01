@@ -53,3 +53,18 @@ function filterGames() {
 // Search Input (US2)
 searchInput.addEventListener('input', filterGames);
 
+// Category Buttons (US3)
+categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Changer l-style dyal l-bouton l-active
+        categoryButtons.forEach(b => {
+            b.classList.remove('bg-black', 'text-white');
+            b.classList.add('bg-white', 'text-gray-900');
+        });
+        btn.classList.add('bg-black', 'text-white');
+        btn.classList.remove('bg-white');
+
+        filterGames();
+    });
+});
+
