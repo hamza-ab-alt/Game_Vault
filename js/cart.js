@@ -74,3 +74,27 @@ function updateCartUI() {
     if (cartCountBadge) cartCountBadge.textContent = count;
 }
 
+// 4. Gestion des clics (Quantity & Delete)
+if (cartItemsContainer) {
+    cartItemsContainer.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+
+        const id = parseInt(btn.dataset.id);
+        const itemIndex = cart.findIndex(i => i.id === id);
+
+        if (btn.classList.contains('update-qty')) {
+            const action = btn.dataset.action;
+            if (action === 'plus') cart[itemIndex].quantity++;
+            else if (action === 'minus' && cart[itemIndex].quantity > 1) cart[itemIndex].quantity--;
+        } 
+        
+        if (btn.classList.contains('remove-item')) {
+            cart.splice(itemIndex, 1);
+        }
+
+        localStorage.setItem('gamevault_cart', JSON.stringify(cart));
+        updateCartUI();
+    });
+}
+
