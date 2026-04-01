@@ -68,3 +68,30 @@ categoryButtons.forEach(btn => {
     });
 });
 
+// Initial Render
+displayGames(games);
+// --- Logic d l-Panier ---
+
+// 1. Initialiser l-panier mn LocalStorage awla khawi
+let cart = JSON.parse(localStorage.getItem('gamevault_cart')) || [];
+
+// 2. Fonction bach n-updatiw l-badge (dak l-reqm l-7mer)
+function updateCartBadge() {
+    const badge = document.getElementById('cart-count');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badge.textContent = totalItems;
+}
+
+// 3. Fonction Ajouter au Panier
+function addToCart(gameId) {
+    const gameToAdd = games.find(g => g.id === gameId);
+    
+    // Check wach l-jeu deja kayn f l-panier
+    const existingItem = cart.find(item => item.id === gameId);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ ...gameToAdd, quantity: 1 });
+    }
+
