@@ -1,51 +1,88 @@
 // js/data.js
+
 export const games = [
     {
         id: 1,
         title: "Cyberpunk 2077",
+        category: "Action",
         price: 59.99,
-        category: "RPG",
-        image: "https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077PhantomLiberty_CDPROJEKTRED_DLC_S1_2560x1440-c62f1eb1498aaea2fc109b7aa50279a3?resize=1&w=480&h=270&quality=medium",
-        description: "Plongez dans l'avenir sombre de Night City."
+        image: "https://i.pinimg.com/736x/14/c8/96/14c896e0730044e222018d65a338eab5.jpg"
     },
     {
         id: 2,
         title: "Elden Ring",
+        category: "RPG",
         price: 49.99,
-        category: "Action",
-        image: "https://external-game-cover-image-cf.store.on.epicgames.com/119133?resize=1&w=360&h=480&quality=medium",
-        description: "Explorez l'Entre-terre, un vaste monde fantastique."
+        image: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&q=80&w=1080"
     },
     {
         id: 3,
         title: "Modern Warfare III",
-        price: 69.99,
         category: "FPS",
-        image: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/store/games/mw3/overview/Store_GamesPDP_Hero01.png?imwidth=1920",
-        description: "Le combat contre la menace ultime continue."
+        price: 69.99,
+        image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=1080"
     },
     {
         id: 4,
         title: "The Witcher 3",
-        price: 29.99,
         category: "RPG",
-        image: "https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3WildHuntCompleteEdition_CDPROJEKTRED_S2_1200x1600-53a8fb2c0201cd8aea410f2a049aba3f?resize=1&w=360&h=480&quality=medium",
-        description: "Incarnez Geralt de Riv et parcourez un monde dévasté."
+        price: 29.99,
+        image: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&q=80&w=1080"
     },
     {
         id: 5,
-        title: "FIFA 25",
-        price: 79.99,
+        title: "FC 25 Mobile",
         category: "Sport",
-        image: "https://external-game-cover-image-cf.store.on.epicgames.com/314499?resize=1&w=360&h=480&quality=medium",
-        description: "Vivez l'expérience de football la plus réaliste."
+        price: 79.99,
+        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1080"
     },
     {
         id: 6,
-        title: "Starfield",
+        title: "Ghost of Tsushima",
+        category: "Action",
         price: 55.00,
-        category: "RPG",
-        image: "https://external-game-cover-image-cf.store.on.epicgames.com/96437?resize=1&w=360&h=480&quality=medium",
-        description: "Explorez les étoiles et découvrez le mystère de l'humanité."
+        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1080"
+    },
+    {
+        id: 7,
+        title: "Red Dead Redemption 2",
+        category: "Adventure",
+        price: 39.99,
+        image: "https://images.unsplash.com/photo-1533236897111-3e94666b2edf?auto=format&fit=crop&q=80&w=1080"
+    },
+    {
+        id: 8,
+        title: "Spider-Man 2",
+        category: "Action",
+        price: 64.99,
+        image: "https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&q=80&w=1080"
+    },
+    {
+        id: 9,
+        title: "NBA 2K25",
+        category: "Sport",
+        price: 65.00,
+        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=1080"
+    },
+    {
+        id: 10,
+        title: "Valorant",
+        category: "FPS",
+        price: 0.00,
+        image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=1080"
+    },
+    {
+        id: 11,
+        title: "Horizon Forbidden",
+        category: "Adventure",
+        price: 45.00,
+        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1080"
+    },
+    {
+        id: 12,
+        title: "Tekken 8",
+        category: "Action",
+        price: 59.90,
+        image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=1080"
     }
 ];

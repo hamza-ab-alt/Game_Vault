@@ -4,8 +4,8 @@ const gamesGrid = document.getElementById('games-grid');
 const searchInput = document.getElementById('search-input');
 const categoryButtons = document.querySelectorAll('.cat-btn');
 
-// --- 1. Fonction bach n-affichiw les jeux (US1 & US10) ---
-// ... dakchi lli ktabna qbel ...
+
+
 
 function displayGames(filteredGames) {
     gamesGrid.innerHTML = ''; 
@@ -34,7 +34,6 @@ function displayGames(filteredGames) {
     });
 }
 
-// --- 2. Logic dyal l-Filtrage (US2 & US3) ---
 function filterGames() {
     const searchTerm = searchInput.value.toLowerCase();
     const activeCategory = document.querySelector('.cat-btn.bg-black').dataset.category;
@@ -48,15 +47,11 @@ function filterGames() {
     displayGames(filtered);
 }
 
-// --- 3. Event Listeners ---
 
-// Search Input (US2)
 searchInput.addEventListener('input', filterGames);
 
-// Category Buttons (US3)
 categoryButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Changer l-style dyal l-bouton l-active
         categoryButtons.forEach(b => {
             b.classList.remove('bg-black', 'text-white');
             b.classList.add('bg-white', 'text-gray-900');
@@ -68,25 +63,19 @@ categoryButtons.forEach(btn => {
     });
 });
 
-// Initial Render
 displayGames(games);
-// --- Logic d l-Panier ---
 
-// 1. Initialiser l-panier mn LocalStorage awla khawi
 let cart = JSON.parse(localStorage.getItem('gamevault_cart')) || [];
 
-// 2. Fonction bach n-updatiw l-badge (dak l-reqm l-7mer)
 function updateCartBadge() {
     const badge = document.getElementById('cart-count');
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     badge.textContent = totalItems;
 }
 
-// 3. Fonction Ajouter au Panier
 function addToCart(gameId) {
     const gameToAdd = games.find(g => g.id === gameId);
     
-    // Check wach l-jeu deja kayn f l-panier
     const existingItem = cart.find(item => item.id === gameId);
 
     if (existingItem) {
@@ -95,15 +84,12 @@ function addToCart(gameId) {
         cart.push({ ...gameToAdd, quantity: 1 });
     }
 
-    // Sauvegarder o Update UI
     localStorage.setItem('gamevault_cart', JSON.stringify(cart));
     updateCartBadge();
     
-    // Alert simple (Optional: tqder t-gadha b Toast mn b3d)
-    alert(`${gameToAdd.title} ajouté au panier !`);
+    // alert(`${gameToAdd.title} ajouté au panier !`);
 }
 
-// 4. Event Listener f l-grid (Event Delegation)
 gamesGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.add-to-cart');
     if (btn) {
@@ -112,5 +98,4 @@ gamesGrid.addEventListener('click', (e) => {
     }
 });
 
-// N-renderiw l-badge f l-lowwel
 updateCartBadge();
