@@ -1,58 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GameVault - Accueil</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-gray-50 text-gray-900 font-sans">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
     <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-gamepad text-2xl"></i>
-                <span class="text-xl font-bold">GameStore</span>
-            </div>
-            <div class="flex gap-6">
-                <a href="index.html" class="font-medium">Accueil</a>
-                <a href="cart.html" class="relative font-medium flex items-center gap-2">
-                    <i class="fa-solid fa-cart-shopping text-gray-700"></i>
-                    Panier <span id="cart-count" class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span>
-                </a>
-            </div>
-        </nav>
+      <nav
+        class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-gamepad text-2xl"></i>
+          <span class="text-xl font-bold">GameStore</span>
+        </div>
+        <div class="flex gap-6">
+          <a href="index.html" class="font-medium">Accueil</a>
+          <a
+            href="cart.html"
+            class="relative font-medium flex items-center gap-2"
+          >
+            <i class="fa-solid fa-cart-shopping text-gray-700"></i>
+            Panier
+            <span
+              id="cart-count"
+              class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full"
+              >0</span
+            >
+          </a>
+        </div>
+      </nav>
     </header>
 
-<main class="w-full px-4 py-10">
-    <div class="flex flex-col items-center mb-12 w-full">
+    <main class="w-full px-4 py-10">
+      <div class="flex flex-col items-center mb-12 w-full">
         <div class="w-full max-w-2xl mb-8">
-            <input type="text" id="search-input" placeholder="Search for games..." 
-                class="w-full bg-gray-100 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-black outline-none shadow-sm">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search for games..."
+            class="w-full bg-gray-100 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-black outline-none shadow-sm"
+          />
         </div>
 
         <div class="w-full">
-            <h3 class="text-center font-bold mb-6 text-xl">Categories</h3>
-            <div id="category-filters" class="flex justify-center gap-3 flex-wrap">
-                <button class="cat-btn bg-black text-white px-6 py-2 rounded-xl text-sm font-medium border border-black transition-all active-btn" data-category="All">All</button>
-                <button class="cat-btn bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all" data-category="RPG">RPG</button>
-                <button class="cat-btn bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all" data-category="Action">Action</button>
-                <button class="cat-btn bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all" data-category="FPS">FPS</button>
-                <button class="cat-btn bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all" data-category="Sport">Sport</button>
-            </div>
+          <h3 class="text-center font-bold mb-6 text-xl">Categories</h3>
+          <div
+            id="category-filters"
+            class="flex md:justify-center overflow-x-auto gap-3 pb-4 no-scrollbar snap-x"
+          >
+            <button
+              class="cat-btn snap-start whitespace-nowrap bg-black text-white px-6 py-2 rounded-xl text-sm font-medium border border-black transition-all active-btn"
+              data-category="All"
+            >
+              All
+            </button>
+            <button
+              class="cat-btn snap-start whitespace-nowrap bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all"
+              data-category="RPG"
+            >
+              RPG
+            </button>
+            <button
+              class="cat-btn snap-start whitespace-nowrap bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all"
+              data-category="Action"
+            >
+              Action
+            </button>
+            <button
+              class="cat-btn snap-start whitespace-nowrap bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all"
+              data-category="FPS"
+            >
+              FPS
+            </button>
+            <button
+              class="cat-btn snap-start whitespace-nowrap bg-white px-6 py-2 rounded-xl text-sm font-medium border border-gray-200 hover:border-black transition-all"
+              data-category="Sport"
+            >
+              Sport
+            </button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="mb-10 px-4">
+      <div class="mb-10 px-4">
         <h2 class="text-5xl font-black mb-3">Découvrez nos jeux</h2>
-        <p class="text-gray-400 text-lg">Les meilleurs jeux vidéo au meilleur prix</p>
-    </div>
+        <p class="text-gray-400 text-lg">
+          Les meilleurs jeux vidéo au meilleur prix
+        </p>
+      </div>
 
-    <div id="games-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
-        </div>
-</main>
+      <div
+        id="games-grid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4"
+      ></div>
+    </main>
 
     <script type="module" src="./js/main.js"></script>
-</body>
+  </body>
 </html>

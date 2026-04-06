@@ -1,43 +1,40 @@
 // js/cart.js
 
 // 1. Récupérer les éléments du DOM
-const cartItemsContainer = document.getElementById('cart-items');
-const cartTotalElement = document.getElementById('cart-total');
-const cartCountBadge = document.getElementById('cart-count');
-const orderSummary = document.getElementById('order-summary');
-const checkoutBtn = document.getElementById('checkout-btn');
+const cartItemsContainer = document.getElementById("cart-items");
+const cartTotalElement = document.getElementById("cart-total");
+const cartCountBadge = document.getElementById("cart-count");
+const orderSummary = document.getElementById("order-summary");
+const checkoutBtn = document.getElementById("checkout-btn");
 
-// 2. Initialiser le panier depuis localStorage
-let cart = JSON.parse(localStorage.getItem('gamevault_cart')) || [];
+let cart = JSON.parse(localStorage.getItem("gamevault_cart")) || [];
 
-// 3. Fonction principale pour afficher le panier
 function updateCartUI() {
-    if (!cartItemsContainer) return; // Sécurité
+  if (!cartItemsContainer) return;
 
-    cartItemsContainer.innerHTML = '';
-    if (orderSummary) orderSummary.innerHTML = '';
-    
-    let total = 0;
-    let count = 0;
+  cartItemsContainer.innerHTML = "";
+  if (orderSummary) orderSummary.innerHTML = "";
 
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = `
+  let total = 0;
+  let count = 0;
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = `
             <div class="text-center py-20 bg-white rounded-[2rem] border border-dashed border-gray-300">
                 <i class="fa-solid fa-cart-shopping text-4xl text-gray-200 mb-4"></i>
                 <p class="text-gray-500 font-medium text-xl">Votre panier est vide</p>
                 <a href="index.html" class="inline-block mt-4 text-black font-bold underline">Retourner à l'accueil</a>
             </div>`;
-        if (cartTotalElement) cartTotalElement.textContent = '0.00 €';
-        if (cartCountBadge) cartCountBadge.textContent = '0';
-        return;
-    }
+    if (cartTotalElement) cartTotalElement.textContent = "0.00 €";
+    if (cartCountBadge) cartCountBadge.textContent = "0";
+    return;
+  }
 
-    cart.forEach(item => {
-        total += item.price * item.quantity;
-        count += item.quantity;
+  cart.forEach((item) => {
+    total += item.price * item.quantity;
+    count += item.quantity;
 
-        // Render Card Article
-        const itemHTML = `
+    const itemHTML = `
             <div class="bg-white p-5 rounded-[2.5rem] border border-gray-100 flex items-center gap-6 shadow-sm hover:shadow-md transition-all">
                 <img src="${item.image}" alt="${item.title}" class="w-24 h-24 object-cover rounded-[1.5rem]">
                 <div class="flex-grow">
@@ -59,55 +56,52 @@ function updateCartUI() {
                 </div>
             </div>
         `;
-        cartItemsContainer.innerHTML += itemHTML;
+    cartItemsContainer.innerHTML += itemHTML;
 
-        // Render Summary Details
-        if (orderSummary) {
-            orderSummary.innerHTML += `<div class="flex justify-between text-gray-600">
+    if (orderSummary) {
+      orderSummary.innerHTML += `<div class="flex justify-between text-gray-600">
                 <span>${item.title} x${item.quantity}</span>
                 <span>${(item.price * item.quantity).toFixed(2)}€</span>
             </div>`;
-        }
-    });
+    }
+  });
 
-    if (cartTotalElement) cartTotalElement.textContent = `${total.toFixed(2)} €`;
-    if (cartCountBadge) cartCountBadge.textContent = count;
+  if (cartTotalElement) cartTotalElement.textContent = `${total.toFixed(2)} €`;
+  if (cartCountBadge) cartCountBadge.textContent = count;
 }
 
-// 4. Gestion des clics (Quantity & Delete)
 if (cartItemsContainer) {
-    cartItemsContainer.addEventListener('click', (e) => {
-        const btn = e.target.closest('button');
-        if (!btn) return;
+  cartItemsContainer.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
 
-        const id = parseInt(btn.dataset.id);
-        const itemIndex = cart.findIndex(i => i.id === id);
+    const id = parseInt(btn.dataset.id);
+    const itemIndex = cart.findIndex((i) => i.id === id);
 
-        if (btn.classList.contains('update-qty')) {
-            const action = btn.dataset.action;
-            if (action === 'plus') cart[itemIndex].quantity++;
-            else if (action === 'minus' && cart[itemIndex].quantity > 1) cart[itemIndex].quantity--;
-        } 
-        
-        if (btn.classList.contains('remove-item')) {
-            cart.splice(itemIndex, 1);
-        }
+    if (btn.classList.contains("update-qty")) {
+      const action = btn.dataset.action;
+      if (action === "plus") cart[itemIndex].quantity++;
+      else if (action === "minus" && cart[itemIndex].quantity > 1)
+        cart[itemIndex].quantity--;
+    }
 
-        localStorage.setItem('gamevault_cart', JSON.stringify(cart));
-        updateCartUI();
-    });
+    if (btn.classList.contains("remove-item")) {
+      cart.splice(itemIndex, 1);
+    }
+
+    localStorage.setItem("gamevault_cart", JSON.stringify(cart));
+    updateCartUI();
+  });
 }
 
-// 5. Commander (US9)
 if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-        if (cart.length === 0) return;
-        alert(" Succès ! Votre commande est validée.");
-        cart = [];
-        localStorage.removeItem('gamevault_cart');
-        updateCartUI();
-    });
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) return;
+    // alert(" Succès ! Votre commande est validée.");
+    cart = [];
+    localStorage.removeItem("gamevault_cart");
+    updateCartUI();
+  });
 }
 
-// Initialisation
-document.addEventListener('DOMContentLoaded', updateCartUI);
+document.addEventListener("DOMContentLoaded", updateCartUI);
