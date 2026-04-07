@@ -67,7 +67,13 @@ let cart = JSON.parse(localStorage.getItem("gamevault_cart")) || [];
 
 function updateCartBadge() {
   const badge = document.getElementById("cart-count");
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  let totalItems = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    totalItems += cart[i].quantity;
+  }
+
   badge.textContent = totalItems;
 }
 
