@@ -17,6 +17,10 @@ function displayGames(filteredGames) {
                     </span>
                 </div>
                 <div class="px-2">
+                  <button class="w-full bg-red-600 text-white py-4 rounded-[1.5rem] font-bold flex items-center justify-center gap-3 hover:bg-gray-800 transition-all active:scale-95 add-to-cart" data-id="${game.id}">
+                       <h3>${game.promo}<h3/>
+                        promo
+                    </button>
                     <h3 class="text-2xl font-bold text-gray-900 mb-1">${game.title}</h3>
                     <p class="text-2xl font-black text-gray-900 mb-4">${game.price.toFixed(2)} €</p>
                     
@@ -24,6 +28,7 @@ function displayGames(filteredGames) {
                         <i class="fa-solid fa-cart-shopping"></i>
                         Ajouter au Panier
                     </button>
+
                 </div>
             </div>
         `;
@@ -62,6 +67,7 @@ categoryButtons.forEach((btn) => {
 });
 
 displayGames(games);
+function updatePromo() {}
 
 let cart = JSON.parse(localStorage.getItem("gamevault_cart")) || [];
 

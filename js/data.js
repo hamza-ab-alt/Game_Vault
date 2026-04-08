@@ -30,6 +30,7 @@ export const games = [
     title: "The Witcher 3",
     category: "RPG",
     price: 29.99,
+    promo : "true",
     image:
       "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&q=80&w=1080",
   },
@@ -54,6 +55,7 @@ export const games = [
     title: "Red Dead Redemption 2",
     category: "Adventure",
     price: 39.99,
+    promo : "true",
     image:
       "https://images.unsplash.com/photo-1533236897111-3e94666b2edf?auto=format&fit=crop&q=80&w=1080",
   },
@@ -78,6 +80,7 @@ export const games = [
     title: "Valorant",
     category: "FPS",
     price: 0.0,
+    promo : "true",
     image:
       "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=1080",
   },
